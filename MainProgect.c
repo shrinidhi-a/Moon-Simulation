@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<GL/glut.h>
 #include<math.h>
+#include<time.h>
+
 
 void circleDraw(float r, float g, float b, int x, int y, int px, int py){
 	int i=0;
@@ -23,15 +25,43 @@ void lineDraw(float r, float g, float b, int p, int q, int r1, int s, float w){
 	glEnd();
 }
 
+void delay(unsigned int mseconds)
+{
+    clock_t goal = mseconds + clock();
+    while (goal > clock());
+}
+
+void rotateMoon(){
+	while(1){
+		int j=0, k=0, a, b;
+		float thetatheta, theta2;
+		for(j=0; j<360; j++){
+			thetatheta = j*3.142/180;
+			a = 450+250*cos(thetatheta);
+			b = 475+250*sin(thetatheta);
+			circleDraw(1.0, 1.0, 1.0, a, b, 30, 30);
+			glFlush();
+			delay(15);
+			circleDraw(0.0, 0.0, 0.0, a, b, 30, 30);
+			glFlush();
+		}
+	}
+}
+
+
+
 void display() {
 	//middleline
 	lineDraw(1.0, 1.0, 1.0, 900, 950, 900, 0, 3.0);
+	//sun
+	circleDraw(1.0, 1.0, 0.0, 1, 475, 50, 480);
 	//earth
 	circleDraw(0.0, 0.0, 1.0, 450, 475, 100, 100);
+	//earth 2
+	//circleDraw(0.0, 0.0, 1.0, 1350, 0, 600, 350);
 	//moon
-	circleDraw(1.0, 1.0, 1.0, 300, 625, 30, 30);
-	//sun
-	circleDraw(1.0, 1.0, 0.0, 1, 475, 15, 200);
+	rotateMoon();
+	//circleDraw(1.0, 1.0, 1.0, 300, 625, 30, 30);
 	glFlush();
 }
 
