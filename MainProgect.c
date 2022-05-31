@@ -25,6 +25,16 @@ void lineDraw(float r, float g, float b, int p, int q, int r1, int s, float w){
 	glEnd();
 }
 
+void rectangle(float r, float g, float b, int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
+	glColor3f(r,g,b);
+	glBegin(GL_POLYGON);
+	glVertex2f(x1,y1);
+	glVertex2f(x2,y2);
+	glVertex2f(x3,y3);
+	glVertex2f(x4,y4);
+	glEnd();
+}
+
 void delay(unsigned int mseconds)
 {
     clock_t goal = mseconds + clock();
@@ -32,7 +42,8 @@ void delay(unsigned int mseconds)
 }
 
 void rotateMoon(){
-	while(1){
+	int l=0;
+	while(l<2){
 		int j=0, k=0, a, b;
 		float thetatheta, theta2;
 		for(j=0; j<360; j++){
@@ -45,6 +56,7 @@ void rotateMoon(){
 			circleDraw(0.0, 0.0, 0.0, a, b, 30, 30);
 			glFlush();
 		}
+		l++;
 	}
 }
 
@@ -58,10 +70,12 @@ void display() {
 	//earth
 	circleDraw(0.0, 0.0, 1.0, 450, 475, 100, 100);
 	//earth 2
-	//circleDraw(0.0, 0.0, 1.0, 1350, 0, 600, 350);
+	circleDraw(0.0, 0.0, 1.0, 1350, 0, 600, 350);
 	//moon
 	rotateMoon();
 	//circleDraw(1.0, 1.0, 1.0, 300, 625, 30, 30);
+	
+	rectangle(1.0, 1.0, 1.0, , int y1, int x2, int y2, int x3, int y3, int x4, int y4){		
 	glFlush();
 }
 
