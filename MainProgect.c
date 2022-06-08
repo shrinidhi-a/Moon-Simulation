@@ -193,7 +193,7 @@ void main(int argc, char* argv[]) {
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
 	glutInitWindowSize(1800, 950);
 	glutInitWindowPosition(20, 20);
-	glutCreateWindow("lunar phase simulation");
+	glutCreateWindow("Moon simulation");
 	glutDisplayFunc(intro);
 	glutMouseFunc(mouse);
 	myInit();
