@@ -229,6 +229,7 @@ void rotateMoon(){
 		j+=1;
 		if(j>360)
 			j=0;
+		circleDraw(0.0, 0.0, 0.0, 700, 475, 30, 30);
 		thetatheta = j*3.142/180;
 		a = 450+250*cos(thetatheta);
 		b = 475+250*sin(thetatheta);
@@ -331,6 +332,7 @@ void display() {
 	rectangle(0.0, 0.0, 0.0, 675, 240, 675, 0, 900, 0, 900, 240);
 	//middleline
 	lineDraw(1.0, 1.0, 1.0, 900, 950, 900, 0, 3.0);
+	circleDraw(1.0, 1.0, 1.0, 700, 475, 30, 30);
 	glFlush();
 }
 
@@ -415,6 +417,9 @@ void myInit() {
 
 void mouse(int btn, int state, int x, int y){
 		if(btn == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
+			glutDisplayFunc(display);
+		}
+		if(btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN){
 			glutDisplayFunc(display);
 			glutIdleFunc(rotateMoon);
 		}
