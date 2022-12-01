@@ -8,9 +8,7 @@ Requires mouse left-click to Enter Simulation and mouse right-click to start Sim
   
   Start Window                
 :-------------------------:
-![image](https://user-images.githubusercontent.com/83810286/205047424-78033a47-027b-4de4-8db4-acdf7f9cef88.png)|
-
-
+![image](https://user-images.githubusercontent.com/83810286/205047424-78033a47-027b-4de4-8db4-acdf7f9cef88.png)
 
       Simulation
 :------------------:
